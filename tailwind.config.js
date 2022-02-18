@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        'inherit': 'inherit'
+      }
+    },
     colors : {
       'orange': 'hsl(26, 100%, 55%)',
       'pale-orange': 'hsl(25, 100%, 94%)',
