@@ -17,7 +17,8 @@ module.exports = {
       'grayish-blue': 'hsl(230, 4%, 72%)',
       'light-grayish-blue': 'hsl(223, 64%, 98%)',
       'white': 'hsl(0, 0%, 100%)',
-      'black': 'hsl(0, 0%, 0%)'
+      'black': 'hsl(0, 0%, 0%)',
+      'orange-shadow': 'hsl(27, 100%, 80%)'
     },
     fontFamily : {
       'kumbh-sans': ['"Kumbh Sans"', 'sans-serif']
