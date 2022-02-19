@@ -4,6 +4,9 @@ module.exports = {
     extend: {
       height: {
         'inherit': 'inherit'
+      },     
+      lineHeight: {
+        '0': '0'
       }
     },
     colors : {
