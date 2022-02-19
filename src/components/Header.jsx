@@ -14,13 +14,14 @@ const Header = () => {
   const displayMenu = ()=>{
     navMenu.current.classList.toggle('!translate-x-0')
     darkScreen.current.classList.toggle('!opacity-60')
+    darkScreen.current.classList.toggle('!z-10')
     close.current.classList.toggle('!block')
     hamburger.current.classList.toggle('!hidden')
   }
 
   return (
     <header>
-      <div className='wrapper relative flex h-16 px-5 py-4 items-center justify-between lg:h-28 lg:mx-40 lg:pb-2 lg:px-1 lg:py-0 border-b border-grayish-blue'>
+      <div className='wrapper relative flex h-16 px-5 py-4 items-center justify-between lg:h-28 lg:mx-40 lg:pb-2 lg:px-1 lg:py-0 lg:border-b border-grayish-blue'>
         <div className='left flex items-center lg:h-inherit'>
           <div onClick={displayMenu} className='menu lg:hidden z-30'>
             <img ref={hamburger} src={menu} alt='menu-icon' />
@@ -40,7 +41,7 @@ const Header = () => {
               <li className='mb-5 lg:mb-0 lg:mx-4 lg:h-inherit lg:flex lg:items-center cursor-pointer lg:relative lg:before:content-[attr(before)] before:absolute before:-bottom-1 before:left-0 before:h-1 before:bg-orange before:w-0 hover:before:w-full before:transition-all'>Contact</li>
             </ul>
           </nav>
-          <div ref={darkScreen} className="screen fixed inset-0 z-10 opacity-0 bg-black h-screen lg:hidden transition-all"></div>
+          <div ref={darkScreen} className="screen -z-10 fixed inset-0 opacity-0 bg-black h-screen lg:hidden transition-all"></div>
         </div>
         <div className="right">
           <div className='user-bar flex items-center'>
