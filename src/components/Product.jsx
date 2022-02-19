@@ -13,7 +13,7 @@ const Product = () => {
       <section className="destop-preview hidden lg:block">
         <DesktopPreview />
       </section>
-      <section className="product-details">
+      <section className="product-details container mx-auto px-6 pt-5 pb-20">
         <ProductDetails />
       </section>
     </main>

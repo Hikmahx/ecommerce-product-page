@@ -12,7 +12,7 @@ const MobileSlider = () => {
           <img src={image} alt="slider-img" />
         ))}
       </div>
-      <div className="directions absolute inset-x-0 inset-y-1/2 flex justify-between mx-4">
+      <div className="directions absolute inset-x-0 inset-y-1/2 flex items-center justify-between mx-4">
         <button className="back-arrow w-10 h-10 bg-white rounded-full">
           <i className="flex items-center justify-center m-auto text-lg">
             <ion-icon name="chevron-back-outline"></ion-icon>
