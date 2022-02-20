@@ -6,7 +6,7 @@ import ProductDetails from './ProductDetails'
 const Product = () => {
   
   return (
-    <main className='product-container'>
+    <main className='product-container lg:flex lg:items-center lg:px-20 xl:px-40 lg:py-20 lg:m-auto lg:mt-2 lg:max-w-8xl '>
       <section className="mobile-slider lg:hidden">
         <MobileSlider />
       </section>
