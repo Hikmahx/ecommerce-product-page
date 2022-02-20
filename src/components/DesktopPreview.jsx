@@ -7,7 +7,7 @@ const DesktopPreview = () => {
 
   return (
     <>
-    <div className="preview max-w-3xl rounded-2xl overflow-hidden">
+    <div className="preview xl:min-w-md max-w-3xl rounded-2xl overflow-hidden">
       <img src={images[0]} alt="product-preview" />
     </div>
     <div className="thumbnails flex max-w-3xl justify-between pt-8">
