@@ -7,7 +7,14 @@ module.exports = {
       },     
       lineHeight: {
         '0': '0'
-      }
+      },
+      width:{
+        '22': '5.5rem'
+      },
+      maxWidth:{
+        '3xl': '51.7rem',
+        '8xl':'84rem'
+      }  
     },
     colors : {
       'orange': 'hsl(26, 100%, 55%)',
