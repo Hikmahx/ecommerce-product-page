@@ -14,7 +14,13 @@ module.exports = {
       maxWidth:{
         '3xl': '51.7rem',
         '8xl':'84rem'
-      }  
+      },
+      minWidth: {
+        'md': '28rem'
+      },
+      fontSize: {
+        '4xl': '2.75rem'
+      }        
     },
     colors : {
       'orange': 'hsl(26, 100%, 55%)',
