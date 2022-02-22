@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import ProductContext from '../context/ProductContext'
 import DesktopPreview from './DesktopPreview'
 
-const DestopLightBox = () => {
+const DesktopLightBox = () => {
 
   const {images, thumbnails} = useContext(ProductContext)
 
@@ -31,4 +31,4 @@ const DestopLightBox = () => {
   )
 }
 
-export default DestopLightBox
+export default DesktopLightBox
