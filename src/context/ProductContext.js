@@ -15,7 +15,9 @@ export const ProductProvider = ({children})=>{
   const [images, setImages] = useState([imgProduct1, imgProduct2, imgProduct3, imgProduct4])
   const [previewImg, setPreviewImg] = useState(images[0])
   const [thumbnails, setThumbnails] = useState([thumbnail1, thumbnail2, thumbnail3, thumbnail4])
+  const [modal, setModal] = useState(false)
   const thumbnailRef = useRef(null)
+
 
   useEffect(() => {
 
@@ -25,8 +27,6 @@ export const ProductProvider = ({children})=>{
   }, [])
   
 
-  
-    
   const previewDisplay = (e)=>{
 
     // CHANGE PREVIEW IMG ON CLICK
@@ -45,6 +45,14 @@ export const ProductProvider = ({children})=>{
     e.target.parentElement.classList.add('border-2', 'border-orange')
   }
 
+  const lightBox = ()=>{
+    setModal(true)
+  }
+
+  const close = ()=>{
+    setModal(false)
+  }
+
 
   return (
     <ProductContext.Provider value={{
@@ -52,7 +60,10 @@ export const ProductProvider = ({children})=>{
       thumbnails, 
       thumbnailRef, 
       previewImg,
-      previewDisplay
+      modal, 
+      previewDisplay, 
+      lightBox,
+      close
     }}>
       {children}
     </ProductContext.Provider>

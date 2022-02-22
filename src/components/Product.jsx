@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import DesktopPreview from './DesktopPreview'
+import DesktopLightBox from './DesktopLightBox'
 import MobileSlider from './MobileSlider'
 import ProductDetails from './ProductDetails'
+import ProductContext from '../context/ProductContext'
+
 
 const Product = () => {
+
+  const {modal} = useContext(ProductContext)
   
   return (
     <main className='product-container lg:flex lg:items-center lg:gap-x-12 xl:gap-x-24 lg:px-20 xl:px-40 lg:py-20 lg:m-auto lg:mt-2 lg:max-w-8xl'>
+      {modal &&
+      <DesktopLightBox />
+      }
       <section className="mobile-slider lg:hidden">
         <MobileSlider />
       </section>

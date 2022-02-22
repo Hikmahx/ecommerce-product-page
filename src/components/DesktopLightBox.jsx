@@ -4,13 +4,13 @@ import DesktopPreview from './DesktopPreview'
 
 const DesktopLightBox = () => {
 
-  const {images, thumbnails} = useContext(ProductContext)
+  const {images, thumbnails, close} = useContext(ProductContext)
 
   return (
     <section className="modal p-32 absolute z-40 inset-0 flex flex-col items-end justify-center mt-20 h-screen">
       <div className="screen fixed inset-0 opacity-70 bg-black transition-all"></div>
       <div className="modal-content container max-w-lg m-auto z-40 relative p-3">
-        <span className="close absolute -top-10 right-0 text-4xl leading-0 cursor-pointer text-white hover:text-orange transition-colors">
+        <span onClick={close} className="close absolute -top-10 right-0 text-4xl leading-0 cursor-pointer text-white hover:text-orange transition-colors">
           <ion-icon name="close-outline"></ion-icon>
         </span>
         <DesktopPreview />
