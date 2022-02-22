@@ -16,6 +16,7 @@ export const ProductProvider = ({children})=>{
   const [previewImg, setPreviewImg] = useState(images[0])
   const [thumbnails, setThumbnails] = useState([thumbnail1, thumbnail2, thumbnail3, thumbnail4])
   const [modal, setModal] = useState(false)
+  const currentIndex = parseInt(images.indexOf(previewImg))
   const thumbnailRef = useRef(null)
 
 
@@ -54,6 +55,22 @@ export const ProductProvider = ({children})=>{
   }
 
 
+  const nextPreview = ()=>{
+    if(currentIndex > 2){
+      setPreviewImg(images[currentIndex])
+    }else{
+      setPreviewImg(images[currentIndex+1])
+    }
+  }
+
+  const prevPreview = ()=>{
+    if(currentIndex <1){
+      setPreviewImg(images[currentIndex])
+    }else{
+      setPreviewImg(images[currentIndex-1])
+    }
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -63,7 +80,9 @@ export const ProductProvider = ({children})=>{
       modal, 
       previewDisplay, 
       lightBox,
-      close
+      close, 
+      nextPreview,
+      prevPreview
     }}>
       {children}
     </ProductContext.Provider>

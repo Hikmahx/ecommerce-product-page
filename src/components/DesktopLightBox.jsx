@@ -4,7 +4,7 @@ import DesktopPreview from './DesktopPreview'
 
 const DesktopLightBox = () => {
 
-  const {images, thumbnails, close} = useContext(ProductContext)
+  const {images, thumbnails, close, prevPreview, nextPreview} = useContext(ProductContext)
 
   return (
     <section className="modal p-32 absolute z-40 inset-0 flex flex-col items-end justify-center mt-20 h-screen">
@@ -16,12 +16,12 @@ const DesktopLightBox = () => {
         <DesktopPreview />
       </div>
         <div className="directions absolute inset-x-1/4 inset-y-1/2 flex items-end justify-between mx-20 z-40">
-          <button className="back-arrow w-14 h-14 bg-white rounded-full">
+          <button onClick={prevPreview} className="back-arrow w-14 h-14 bg-white rounded-full">
             <i className="flex items-center justify-center m-auto text-2xl hover:text-orange">
               <ion-icon name="chevron-back-outline"></ion-icon>
             </i>
           </button>
-          <button className="next-arrow w-14 h-14 bg-white rounded-full">
+          <button onClick={nextPreview} className="next-arrow w-14 h-14 bg-white rounded-full">
             <i className="flex items-center justify-center m-auto text-2xl hover:text-orange">
               <ion-icon name="chevron-forward-outline"></ion-icon>
             </i>
