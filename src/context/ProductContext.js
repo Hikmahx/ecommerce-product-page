@@ -19,7 +19,8 @@ export const ProductProvider = ({children})=>{
   const currentIndex = parseInt(images.indexOf(previewImg))
   let thumbnailRef = createRef()
   let modalThumbnailRef = useRef(null)
-  
+  const sliderRef = useRef(null)
+  const [slideCount, setSlideCount] = useState(0)
   
   useEffect(() => {
 
@@ -85,6 +86,27 @@ export const ProductProvider = ({children})=>{
     }
   }
 
+  const nextSlide = ()=>{
+    let slideLength = sliderRef.current.childElementCount
+    if(slideCount > slideLength -2 || (slideCount > slideLength -3 && window.innerWidth > 640)){
+      setSlideCount(slideCount)
+      sliderRef.current.style.transform = `translateX(-${100 * (slideCount)}%)`
+    }else{
+      setSlideCount(slideCount+1)
+      sliderRef.current.style.transform = `translateX(-${100 * (slideCount+1)}%)`
+    }
+  }
+
+  const prevSlide = ()=>{
+    if(slideCount === 0 ){
+      setSlideCount(slideCount)
+      sliderRef.current.style.transform = `translateX(-${100 * (slideCount)}%)`
+    }else{
+      setSlideCount(slideCount- 1)
+      sliderRef.current.style.transform = `translateX(-${100 * (slideCount-1)}%)`
+    }
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -93,11 +115,14 @@ export const ProductProvider = ({children})=>{
       previewImg,
       modal, 
       modalThumbnailRef,
+      sliderRef,
       previewDisplay, 
       lightBox,
       close, 
       nextPreview,
-      prevPreview
+      prevPreview, 
+      nextSlide, 
+      prevSlide
     }}>
       {children}
     </ProductContext.Provider>
