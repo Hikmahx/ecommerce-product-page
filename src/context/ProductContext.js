@@ -30,21 +30,8 @@ export const ProductProvider = ({children})=>{
   
 
   const previewDisplay = (e)=>{
-
     // CHANGE PREVIEW IMG ON CLICK
     setPreviewImg(images[e.target.id])   
-
-    // REMOVE STYLE FROM INACITVE THUMBNAIL
-    let thumbImgs = e.target.parentElement.parentElement.childNodes
-    thumbImgs.forEach(thumbImg => {
-      let img = thumbImg.firstElementChild
-      thumbImg.classList.remove('border-2', 'border-orange')
-      img.classList.remove('opacity-50')
-    });
-
-    // STYLE ACITVE THUMBNAIL
-    e.target.classList.add('opacity-50')
-    e.target.parentElement.classList.add('border-2', 'border-orange')
   }
 
   const lightBox = ()=>{
@@ -54,7 +41,6 @@ export const ProductProvider = ({children})=>{
   const close = ()=>{
     setModal(false)
   }
-
 
   const nextPreview = ()=>{
     if(currentIndex > 2){
@@ -73,21 +59,27 @@ export const ProductProvider = ({children})=>{
   }
 
   const thumbnailActive = ()=>{
+    // REMOVE STYLE FROM INACITVE THUMBNAIL
     thumbnailRef.current.childNodes.forEach(img=>{
       img.classList.remove('border-2', 'border-orange')
       img.firstElementChild.classList.remove('opacity-50')
     })
+    
+    // STYLE ACITVE THUMBNAIL
     return thumbnailRef.current.childNodes[currentIndex].classList.add('border-2', 'border-orange'),
            thumbnailRef.current.childNodes[currentIndex].firstElementChild.classList.add('opacity-50')
   }
 
   const modalThumbnailActive = ()=>{
     if(modal){
+      // REMOVE STYLE FROM INACITVE THUMBNAIL
       let modalThumbnailImgs = modalThumbnailRef.current.parentElement.childNodes
       modalThumbnailImgs.forEach(img=>{
         img.classList.remove('border-2', 'border-orange')
         img.firstElementChild.classList.remove('opacity-50')
       })
+
+      // STYLE ACITVE THUMBNAIL
       return modalThumbnailImgs[currentIndex].classList.add('border-2', 'border-orange'),
               modalThumbnailImgs[currentIndex].firstElementChild.classList.add('opacity-50')
     }
