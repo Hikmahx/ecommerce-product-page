@@ -21,12 +21,13 @@ export const ProductProvider = ({children})=>{
   let modalThumbnailRef = useRef(null)
   const sliderRef = useRef(null)
   const [slideCount, setSlideCount] = useState(0)
+  const [quantityCount, setQuantityCount] = useState(0)
   
   useEffect(() => {
 
     thumbnailActive()
     modalThumbnailActive()
-    
+    // eslint-disable-next-line    
   }, [previewImg, modal])
   
 
@@ -107,6 +108,17 @@ export const ProductProvider = ({children})=>{
     }
   }
 
+  const quantity = (e)=>{
+    let action = e.target.innerText
+    if(action ==='-'){
+      setQuantityCount((quantityCount)=>(Math.max(quantityCount - 1, 0))) 
+    }else if(action === '+'){
+      setQuantityCount((quantityCount)=>(Math.min(quantityCount + 1, 100))) 
+    }else{
+      setQuantityCount(parseInt(e.target.value))
+    }
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -116,13 +128,16 @@ export const ProductProvider = ({children})=>{
       modal, 
       modalThumbnailRef,
       sliderRef,
+      quantityCount,
+      setQuantityCount,
       previewDisplay, 
       lightBox,
       close, 
       nextPreview,
       prevPreview, 
       nextSlide, 
-      prevSlide
+      prevSlide,
+      quantity
     }}>
       {children}
     </ProductContext.Provider>
