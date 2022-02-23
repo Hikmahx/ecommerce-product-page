@@ -1,4 +1,4 @@
-import {createContext, useEffect, useRef, useState} from 'react'
+import {createContext, useEffect, createRef, useRef, useState} from 'react'
 import imgProduct1 from '../assets/image-product-1.jpg'
 import imgProduct2 from '../assets/image-product-2.jpg'
 import imgProduct3 from '../assets/image-product-3.jpg'
@@ -17,15 +17,16 @@ export const ProductProvider = ({children})=>{
   const [thumbnails, setThumbnails] = useState([thumbnail1, thumbnail2, thumbnail3, thumbnail4])
   const [modal, setModal] = useState(false)
   const currentIndex = parseInt(images.indexOf(previewImg))
-  const thumbnailRef = useRef(null)
-
-
+  let thumbnailRef = createRef()
+  let modalThumbnailRef = useRef(null)
+  
+  
   useEffect(() => {
 
-    // STYLE DEFAULT ACTIVE THUMBNAIL
-    return thumbnailRef.current.childNodes[0].classList.add('border-2', 'border-orange'),
-           thumbnailRef.current.childNodes[0].firstElementChild.classList.add('opacity-50')
-  }, [])
+    thumbnailActive()
+    modalThumbnailActive()
+    
+  }, [previewImg, modal])
   
 
   const previewDisplay = (e)=>{
@@ -71,6 +72,27 @@ export const ProductProvider = ({children})=>{
     }
   }
 
+  const thumbnailActive = ()=>{
+    thumbnailRef.current.childNodes.forEach(img=>{
+      img.classList.remove('border-2', 'border-orange')
+      img.firstElementChild.classList.remove('opacity-50')
+    })
+    return thumbnailRef.current.childNodes[currentIndex].classList.add('border-2', 'border-orange'),
+           thumbnailRef.current.childNodes[currentIndex].firstElementChild.classList.add('opacity-50')
+  }
+
+  const modalThumbnailActive = ()=>{
+    if(modal){
+      let modalThumbnailImgs = modalThumbnailRef.current.parentElement.childNodes
+      modalThumbnailImgs.forEach(img=>{
+        img.classList.remove('border-2', 'border-orange')
+        img.firstElementChild.classList.remove('opacity-50')
+      })
+      return modalThumbnailImgs[currentIndex].classList.add('border-2', 'border-orange'),
+              modalThumbnailImgs[currentIndex].firstElementChild.classList.add('opacity-50')
+    }
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -78,6 +100,7 @@ export const ProductProvider = ({children})=>{
       thumbnailRef, 
       previewImg,
       modal, 
+      modalThumbnailRef,
       previewDisplay, 
       lightBox,
       close, 
