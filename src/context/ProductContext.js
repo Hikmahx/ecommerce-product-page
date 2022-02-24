@@ -22,6 +22,8 @@ export const ProductProvider = ({children})=>{
   const sliderRef = useRef(null)
   const [slideCount, setSlideCount] = useState(0)
   const [quantityCount, setQuantityCount] = useState(0)
+  const [cartItems, setcartItems] = useState([])
+  const [showCart, setShowCart] = useState(false)
   
   useEffect(() => {
 
@@ -119,6 +121,10 @@ export const ProductProvider = ({children})=>{
     }
   }
 
+  const cartDisplay = ()=>{
+    setShowCart(!showCart)
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -129,6 +135,8 @@ export const ProductProvider = ({children})=>{
       modalThumbnailRef,
       sliderRef,
       quantityCount,
+      cartItems,
+      showCart,
       setQuantityCount,
       previewDisplay, 
       lightBox,
@@ -137,7 +145,8 @@ export const ProductProvider = ({children})=>{
       prevPreview, 
       nextSlide, 
       prevSlide,
-      quantity
+      quantity,
+      cartDisplay
     }}>
       {children}
     </ProductContext.Provider>
