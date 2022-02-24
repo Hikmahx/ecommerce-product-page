@@ -4,7 +4,10 @@ module.exports = {
     extend: {
       height: {
         'inherit': 'inherit'
-      },     
+      }, 
+      minHeight: {
+        'xs': '16rem'
+      },    
       lineHeight: {
         '0': '0'
       },
