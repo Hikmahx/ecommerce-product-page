@@ -122,7 +122,7 @@ export const ProductProvider = ({children})=>{
     }else if(action === '+'){
       setQuantityCount((quantityCount)=>(Math.min(quantityCount + 1, 100))) 
     }else{
-      setQuantityCount(parseInt(e.target.value))
+      setQuantityCount(()=>(Math.min(parseInt(e.target.value), 100)))
     }
   }
 
