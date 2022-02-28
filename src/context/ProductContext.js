@@ -22,9 +22,14 @@ export const ProductProvider = ({children})=>{
   const sliderRef = useRef(null)
   const [slideCount, setSlideCount] = useState(0)
   const [quantityCount, setQuantityCount] = useState(0)
-  const [cartItems, setcartItems] = useState([])
+  const [cartItems, setCartItems] = useState([])
   const [showCart, setShowCart] = useState(false)
-  
+  const [total, setTotal] = useState(0)
+  const productImgRef = useRef()
+  const productTitleRef = useRef()
+  const productPriceRef = useRef()
+  const productQuantityRef = useRef()
+
   useEffect(() => {
 
     thumbnailActive()
@@ -125,6 +130,23 @@ export const ProductProvider = ({children})=>{
     setShowCart(!showCart)
   }
 
+  const addCart = (e)=>{
+    if(quantityCount < 1){
+      setQuantityCount(quantityCount+1)
+    }
+    
+    setCartItems(()=>[
+      {
+        'img': thumbnails[0],
+        'title': productTitleRef.current.innerText, 
+        'price': productPriceRef.current.innerText,
+        'quantity': (productQuantityRef.current.value <1? 1 : productQuantityRef.current.value)
+      }
+    ])
+      
+    setTotal(productQuantityRef.current.value <1? 1 : productQuantityRef.current.value)
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -137,6 +159,12 @@ export const ProductProvider = ({children})=>{
       quantityCount,
       cartItems,
       showCart,
+      total,
+      productImgRef,
+      productTitleRef,
+      productPriceRef,
+      productQuantityRef,
+      addCart,
       setQuantityCount,
       previewDisplay, 
       lightBox,
