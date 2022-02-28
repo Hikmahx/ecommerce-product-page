@@ -8,7 +8,7 @@ import ProductContext from '../context/ProductContext';
 
 const Header = () => {
 
-  const {cartItems, showCart, cartDisplay} = useContext(ProductContext)
+  const {cartItems, showCart, cartDisplay, total} = useContext(ProductContext)
     
   //HAMBURGER MENU 
   let navMenu = useRef(null)
@@ -55,9 +55,9 @@ const Header = () => {
           <div className='user-bar flex items-center'>
             <div className='cart-container'>
               <div className='cart-wrapper mx-3 lg:mx-8 lg:mt-2 relative'>
-              {cartItems.length > 0 &&
+              {total > 0 &&
               <div className='quantity-wrapper absolute px-2 rounded-full bg-orange z-10 -right-1/3 lg:-right-1/2 -top-2'>
-                <div className="amount text-white text-xs">{cartItems.length}</div>
+                <div className="amount text-white text-xs">{total}</div>
               </div>
               }
                 <i onClick={cartDisplay} className= {'cursor-pointer text-3xl !leading-none lg:text-2xl transition-colors ' + (showCart? 'text-very-dark-blue' : 'text-grayish-blue')}>
