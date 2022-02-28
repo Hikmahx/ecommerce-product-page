@@ -147,6 +147,22 @@ Slider version of `prevPreview()`
 Depending on the quantity of product you wish to add to the cart, `quantity` function check the if the event is on the input tag, the minus icon or the plus icon. You can increase or decrease by adding a number, clicking on the icon or using the up and down keys.
 
 
+#### cartDisplay
+I created a cart component which displays on click of the cart icon (toggles the component by using the state: `showCart`). Ternary operator was used to check if the cart items are empty or contains anything.
+
+
+#### addCart
+Initially, I wanted to use `reduce` to sum all the number input with each click, but the code didn't work correctly. So I set the `total` state to the number input value. 
+
+According to this function, if the number is zero, it increases to one since the least amount a person can order is one.
+
+I also add the object to the cart, with the img, title, price and quantity using the `cartItems` state.
+
+To get all these values, I added `ref` to the h3 title, the price div and the number input tag in the product details component.
+
+The little orange circle above the cart icon only show if the cart isn't empty.
+
+
 ### Continued development
 This is a great project to progress into a clothing ecommerce project. Perhaps one day I'll do so.
 
