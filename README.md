@@ -162,6 +162,13 @@ To get all these values, I added `ref` to the h3 title, the price div and the nu
 
 The little orange circle above the cart icon only show if the cart isn't empty.
 
+#### deleteItem
+I'm not fluent in using `ref`, so it's safe to say I came across some issues in this function. 
+
+I had to change the `productTitleRef` from `useRef` to `createRef(null)`, which stopped the errors from popping up.
+
+Also, since it's only one item (multiplied by the quantity input), I set the total to zero when the delete icon is clicked.
+
 
 ### Continued development
 This is a great project to progress into a clothing ecommerce project. Perhaps one day I'll do so.
