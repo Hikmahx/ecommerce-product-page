@@ -33,7 +33,7 @@ const ProductDetails = () => {
     <div className="sm:flex lg:mt-8 w-full">
       <div className="quantity-container w-full bg-light-grayish-blue rounded-lg h-14 mb-4 flex items-center justify-between px-6 lg:px-3 font-bold sm:mr-3 lg:mr-5 lg:w-1/3">
         <button onClick={quantity} className="text-orange text-2xl leading-none font-bold mb-1 lg:mb-2 lg:text-3xl hover:opacity-60">-</button>
-        <input ref={productQuantityRef} min={0} max={100} onChange={quantity} className="quantity focus:outline-none text-dark-blue bg-light-grayish-blue font-bold flex text-center w-full" type="number" name="quantity" value={quantityCount} />
+        <input ref={productQuantityRef} min={0} max={100} onChange={quantity} className="quantity focus:outline-none text-dark-blue bg-light-grayish-blue font-bold flex text-center w-full" type="number" name="quantity" value={quantityCount} aria-label="quantity number" />
         <button onClick={quantity} className="text-orange text-2xl leading-none font-bold mb-1 lg:mb-2 lg:text-3xl hover:opacity-60">+</button>
       </div>
 
