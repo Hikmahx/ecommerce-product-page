@@ -15,12 +15,12 @@ const Product = () => {
       {modal &&
       <DesktopLightBox />
       }
-      <section className="mobile-slider lg:hidden">
+      <div className="mobile-slider lg:hidden">
         <MobileSlider />
-      </section>
-      <section className="destop-preview hidden lg:block">
+      </div>
+      <div className="destop-preview hidden lg:block">
         <DesktopPreview />
-      </section>
+      </div>
       <section className="product-details container mx-auto px-6 pt-5 sm:pt-10 lg:pt-5 pb-20 lg:pb-5 lg:pr-0 lg:pl-7 xl:ml-1">
         <ProductDetails />
       </section>
