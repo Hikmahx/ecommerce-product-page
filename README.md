@@ -7,7 +7,7 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  <!-- - [Links](#links) -->
+  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Project development process](#project-development-process)
@@ -25,8 +25,8 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Open a lightbox gallery by clicking on the large product image
 - Switch the large product image by clicking on the small thumbnail images
-<!-- - Add items to the cart
-- View the cart and remove items from it -->
+- Add items to the cart
+- View the cart and remove items from it
 
 ### Screenshot
 
@@ -34,7 +34,11 @@ Users should be able to:
 
 This is the screenshot of my solution
 
-<!-- ### Links -->
+### Links
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/ecommerce-product-page-react-and-tailwind-5Q4HP-Rip)
+- Live URL: [Add live site URL here](https://ecommerce-product-page-hikmahx.vercel.app/)
+
+
 
 ## My process
 
