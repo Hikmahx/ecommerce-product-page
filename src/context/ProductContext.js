@@ -75,8 +75,10 @@ export const ProductProvider = ({children})=>{
     })
     
     // STYLE ACITVE THUMBNAIL
-    return thumbnailRef.current.childNodes[currentIndex].classList.add('border-2', 'border-orange'),
-           thumbnailRef.current.childNodes[currentIndex].firstElementChild.classList.add('opacity-50')
+    return (
+      thumbnailRef.current.childNodes[currentIndex].classList.add('border-2', 'border-orange'),
+      thumbnailRef.current.childNodes[currentIndex].firstElementChild.classList.add('opacity-50')
+    )
   }
 
   const modalThumbnailActive = ()=>{
@@ -89,8 +91,10 @@ export const ProductProvider = ({children})=>{
       })
 
       // STYLE ACITVE THUMBNAIL
-      return modalThumbnailImgs[currentIndex].classList.add('border-2', 'border-orange'),
-              modalThumbnailImgs[currentIndex].firstElementChild.classList.add('opacity-50')
+      return( 
+        modalThumbnailImgs[currentIndex].classList.add('border-2', 'border-orange'),
+        modalThumbnailImgs[currentIndex].firstElementChild.classList.add('opacity-50')
+      )
     }
   }
 

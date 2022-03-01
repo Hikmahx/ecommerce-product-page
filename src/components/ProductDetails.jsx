@@ -3,7 +3,7 @@ import ProductContext from '../context/ProductContext'
 
 const ProductDetails = () => {
   
-  const {quantity, setQuantityCount, quantityCount, productTitleRef, productPriceRef, productQuantityRef, addCart} = useContext(ProductContext)
+  const {quantity, quantityCount, productTitleRef, productPriceRef, productQuantityRef, addCart} = useContext(ProductContext)
 
   return (
     <>
