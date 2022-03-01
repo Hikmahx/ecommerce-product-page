@@ -3,7 +3,7 @@ import ProductContext from '../context/ProductContext';
 
 const Cart = () => {
 
-  const {cartItems, productTitleRef, total} = useContext(ProductContext)
+  const {cartItems, productTitleRef, total, deleteItem} = useContext(ProductContext)
 
 
   return (
@@ -27,7 +27,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="delete">
-            <i className="">
+            <i onClick={deleteItem} className="cursor-pointer">
               <ion-icon name="trash-outline"></ion-icon>
             </i>
           </div>

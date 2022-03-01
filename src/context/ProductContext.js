@@ -26,7 +26,7 @@ export const ProductProvider = ({children})=>{
   const [showCart, setShowCart] = useState(false)
   const [total, setTotal] = useState(0)
   const productImgRef = useRef()
-  const productTitleRef = useRef()
+  const productTitleRef = createRef(null)
   const productPriceRef = useRef()
   const productQuantityRef = useRef()
 
@@ -147,6 +147,12 @@ export const ProductProvider = ({children})=>{
     setTotal(productQuantityRef.current.value <1? 1 : productQuantityRef.current.value)
   }
 
+  const deleteItem = (e)=>{
+    let product = e.target.parentElement.parentElement.parentElement.childNodes[1].firstElementChild.textContent
+    setCartItems(cartItems.filter((item)=>(item.title !== product)))
+    setTotal(0)
+  }
+
   return (
     <ProductContext.Provider value={{
       images, 
@@ -174,7 +180,8 @@ export const ProductProvider = ({children})=>{
       nextSlide, 
       prevSlide,
       quantity,
-      cartDisplay
+      cartDisplay, 
+      deleteItem
     }}>
       {children}
     </ProductContext.Provider>
